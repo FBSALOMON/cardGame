@@ -1,26 +1,576 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad9_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="cardGameTravail" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_dessin2.png" translatesAutoresizingMaskIntoConstraints="NO" id="fUD-lc-lwR" userLabel="background">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdM-57-rwd">
+                                <rect key="frame" x="333.5" y="903" width="101" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101" id="Ama-pi-ZsD"/>
+                                    <constraint firstAttribute="width" constant="101" id="bTA-up-3uo"/>
+                                </constraints>
+                                <state key="normal" title="RESET" image="resetButton.png"/>
+                                <connections>
+                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UpL-a0-fi2"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DEP-tI-GO9" userLabel="Centralizar">
+                                <rect key="frame" x="20" y="171" width="728" height="744"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dTW-bT-SJQ" userLabel="card_2">
+                                        <rect key="frame" x="277" y="0.0" width="175" height="175"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2V-zH-EZE" userLabel="back_2">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="panda.png" translatesAutoresizingMaskIntoConstraints="NO" id="GJN-iz-w7F" userLabel="animal">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eFX-wA-8Vm" userLabel="front_2">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSG-ok-08m">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="showCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LzT-p2-UbE"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front2PHOTOSHOP.png" translatesAutoresizingMaskIntoConstraints="NO" id="edq-4q-Zpb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                        </subviews>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MNX-SW-UNf" userLabel="card_4">
+                                        <rect key="frame" x="94" y="183" width="175" height="175"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S5D-pb-FFf" userLabel="back_4">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fox.png" translatesAutoresizingMaskIntoConstraints="NO" id="1cZ-5t-gg5" userLabel="animal">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rp2-MY-kxB" userLabel="front_4">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UH3-ry-b2a">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="showCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6vt-yg-DKr"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front2PHOTOSHOP.png" translatesAutoresizingMaskIntoConstraints="NO" id="UB2-ty-1I7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                        </subviews>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mzi-93-qe2" userLabel="card_5">
+                                        <rect key="frame" x="277" y="183" width="175" height="175"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ISr-cJ-Dg9" userLabel="back_5">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="snake.png" translatesAutoresizingMaskIntoConstraints="NO" id="7La-yI-evn" userLabel="animal">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MtC-1y-UuI" userLabel="front_5">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front2PHOTOSHOP.png" translatesAutoresizingMaskIntoConstraints="NO" id="vuL-2b-jO1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hot-1o-Anu">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="showCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qqj-hN-ciL"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </view>
+                                        </subviews>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qXn-TD-9e4" userLabel="card_6">
+                                        <rect key="frame" x="460" y="183" width="175" height="175"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yHt-DV-Yhi" userLabel="back_6">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="snake.png" translatesAutoresizingMaskIntoConstraints="NO" id="1ot-s9-bvN" userLabel="animal">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iXi-3t-M1I" userLabel="front_6">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gY3-4s-4Ro">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="showCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="frE-Lu-PXw"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front2PHOTOSHOP.png" translatesAutoresizingMaskIntoConstraints="NO" id="srb-6i-x0e">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                        </subviews>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iFC-lJ-2yE" userLabel="card_7">
+                                        <rect key="frame" x="94" y="366" width="175" height="175"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9fB-Nj-rVP" userLabel="back_7">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="whale.png" translatesAutoresizingMaskIntoConstraints="NO" id="o7S-fI-nA1" userLabel="animal">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R6l-Kn-emo" userLabel="front_7">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front2PHOTOSHOP.png" translatesAutoresizingMaskIntoConstraints="NO" id="GIc-NP-q7D">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eur-E3-3rf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="showCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aPx-6L-WtT"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </view>
+                                        </subviews>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sGE-tK-Cme" userLabel="card_8">
+                                        <rect key="frame" x="277" y="366" width="175" height="175"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4GL-mV-egA" userLabel="back_8">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="whale.png" translatesAutoresizingMaskIntoConstraints="NO" id="c8L-zu-7Rt" userLabel="animal">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cdi-fq-E6o" userLabel="front_8">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7y-PZ-klB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="showCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wgR-vA-2hw"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front2PHOTOSHOP.png" translatesAutoresizingMaskIntoConstraints="NO" id="W0Q-n9-8ZW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                        </subviews>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MRn-ug-eZx" userLabel="card_9">
+                                        <rect key="frame" x="460" y="366" width="175" height="175"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="StB-lQ-G1L" userLabel="back_9">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="octopus.png" translatesAutoresizingMaskIntoConstraints="NO" id="tNf-QY-6JI" userLabel="animal">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="alB-fS-hsL" userLabel="front_9">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front2PHOTOSHOP.png" translatesAutoresizingMaskIntoConstraints="NO" id="4hp-nH-7kI">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3y-Rb-2wO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="showCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MLS-Vv-Egy"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </view>
+                                        </subviews>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="osV-HQ-ZyJ" userLabel="card_10">
+                                        <rect key="frame" x="94" y="549" width="175" height="175"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bYe-of-82l" userLabel="back_10">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="octopus.png" translatesAutoresizingMaskIntoConstraints="NO" id="wcT-Lf-COB" userLabel="animal">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vtB-mj-3Qa" userLabel="front_10">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pp6-Hb-n8t">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="showCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VFl-Cb-zha"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front2PHOTOSHOP.png" translatesAutoresizingMaskIntoConstraints="NO" id="itB-Jt-HcZ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                        </subviews>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ygG-z9-gIK" userLabel="card_11">
+                                        <rect key="frame" x="277" y="549" width="175" height="175"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Wz-BQ-97m" userLabel="back_11">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="owl.png" translatesAutoresizingMaskIntoConstraints="NO" id="zGG-Dz-FDl" userLabel="animal">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cMm-7x-RTW" userLabel="front_11">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front2PHOTOSHOP.png" translatesAutoresizingMaskIntoConstraints="NO" id="952-D3-IwW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkZ-6j-xau">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="showCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zw4-zV-4Hp"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </view>
+                                        </subviews>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xq6-S2-rg3" userLabel="card_1">
+                                        <rect key="frame" x="94" y="0.0" width="175" height="175"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vp1-Ub-QkE" userLabel="back_1">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="panda.png" translatesAutoresizingMaskIntoConstraints="NO" id="yDc-La-sMU" userLabel="animal">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5jb-Sl-7Ac" userLabel="front_1">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front2PHOTOSHOP.png" translatesAutoresizingMaskIntoConstraints="NO" id="ex6-at-hJL">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4a0-6i-GS5">
+                                                        <rect key="frame" x="0.0" y="-3" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="showCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SrR-xz-jKw"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </view>
+                                        </subviews>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="72D-6U-IgF" userLabel="card_3">
+                                        <rect key="frame" x="460" y="0.0" width="175" height="175"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3yn-or-Jqo" userLabel="back_3">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fox.png" translatesAutoresizingMaskIntoConstraints="NO" id="ERC-hh-Rrv" userLabel="animal">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Lu-8W-Xep" userLabel="front_3">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front2PHOTOSHOP.png" translatesAutoresizingMaskIntoConstraints="NO" id="G0K-8m-9QF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q25-gm-FVG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="showCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yLe-XP-IRw"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </view>
+                                        </subviews>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CsE-vZ-izu" userLabel="card_12">
+                                        <rect key="frame" x="460" y="549" width="175" height="175"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KWp-f2-4TM" userLabel="back_12">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="owl.png" translatesAutoresizingMaskIntoConstraints="NO" id="zKe-X1-xkc" userLabel="animal">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PKi-rE-v4r" userLabel="front_12">
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPI-zc-kyx">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="showCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NFA-Aa-nTp"/>
+                                                        </connections>
+                                                    </button>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="front2PHOTOSHOP.png" translatesAutoresizingMaskIntoConstraints="NO" id="BW4-NQ-19F">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                            </view>
+                                        </subviews>
+                                        <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="728" id="7XN-z3-vmk"/>
+                                    <constraint firstAttribute="height" constant="744" id="X8h-0j-SLM"/>
+                                </constraints>
+                            </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q36-gq-DAs">
+                                <rect key="frame" x="334" y="20" width="100" height="86"/>
+                                <color key="backgroundColor" red="0.68627450980392157" green="0.086274509803921567" blue="0.12941176470588237" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="NHd-Rd-8kh"/>
+                                    <constraint firstAttribute="height" constant="86" id="TCE-oN-uaX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vvZ-X2-BfA">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="168"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SUN.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ8-eq-0P3">
+                                        <rect key="frame" x="8" y="-99" width="768" height="412"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="0" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="f0B-M4-xMr">
+                                        <rect key="frame" x="277" y="82" width="215" height="86"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="1" green="0.2952063687" blue="0.2364931921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="168" id="UNy-Gd-qDG"/>
+                                    <constraint firstAttribute="width" secondItem="vvZ-X2-BfA" secondAttribute="height" multiplier="32:7" id="YLq-bq-Krr"/>
+                                    <constraint firstAttribute="width" constant="768" id="itj-v8-Qfh"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DEP-tI-GO9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5Fa-V4-Mou"/>
+                            <constraint firstItem="vvZ-X2-BfA" firstAttribute="top" secondItem="fUD-lc-lwR" secondAttribute="top" id="APS-xg-2rO"/>
+                            <constraint firstAttribute="trailing" secondItem="fUD-lc-lwR" secondAttribute="trailing" id="E4C-dM-og1"/>
+                            <constraint firstItem="zdM-57-rwd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="441.5" id="ELD-0w-8ID"/>
+                            <constraint firstItem="DEP-tI-GO9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="31" id="JfF-G6-YMh"/>
+                            <constraint firstItem="vvZ-X2-BfA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mwg-ZO-uTX"/>
+                            <constraint firstItem="fUD-lc-lwR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RZg-wQ-cUf"/>
+                            <constraint firstItem="zdM-57-rwd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="h8k-1j-wX9"/>
+                            <constraint firstItem="q36-gq-DAs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" symbolic="YES" id="hiV-BI-R1L"/>
+                            <constraint firstItem="q36-gq-DAs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="p72-cp-LjM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fUD-lc-lwR" secondAttribute="bottom" id="prR-fV-6G6"/>
+                            <constraint firstItem="fUD-lc-lwR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="tDJ-JY-ifI"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="back_1" destination="vp1-Ub-QkE" id="mJy-te-d39"/>
+                        <outlet property="back_10" destination="bYe-of-82l" id="oK6-LH-Eil"/>
+                        <outlet property="back_11" destination="0Wz-BQ-97m" id="wb3-PA-GuQ"/>
+                        <outlet property="back_12" destination="KWp-f2-4TM" id="T4L-ni-FV9"/>
+                        <outlet property="back_2" destination="a2V-zH-EZE" id="lFn-sD-TyY"/>
+                        <outlet property="back_3" destination="3yn-or-Jqo" id="gIN-t7-ThT"/>
+                        <outlet property="back_4" destination="S5D-pb-FFf" id="o58-3g-VqQ"/>
+                        <outlet property="back_5" destination="ISr-cJ-Dg9" id="3DX-Jb-yGH"/>
+                        <outlet property="back_6" destination="yHt-DV-Yhi" id="IO9-sN-nfT"/>
+                        <outlet property="back_7" destination="9fB-Nj-rVP" id="CBN-Bk-Lth"/>
+                        <outlet property="back_8" destination="4GL-mV-egA" id="cD3-ga-v6H"/>
+                        <outlet property="back_9" destination="StB-lQ-G1L" id="Ak9-VA-h6R"/>
+                        <outlet property="card_1" destination="Xq6-S2-rg3" id="EwC-cF-aGc"/>
+                        <outlet property="card_10" destination="osV-HQ-ZyJ" id="T4s-W5-Ci5"/>
+                        <outlet property="card_11" destination="ygG-z9-gIK" id="pF6-Vr-m9Y"/>
+                        <outlet property="card_12" destination="CsE-vZ-izu" id="1w8-c7-jAA"/>
+                        <outlet property="card_2" destination="dTW-bT-SJQ" id="SBe-HY-aGv"/>
+                        <outlet property="card_3" destination="72D-6U-IgF" id="OUZ-lq-oJB"/>
+                        <outlet property="card_4" destination="MNX-SW-UNf" id="dqd-P0-72h"/>
+                        <outlet property="card_5" destination="mzi-93-qe2" id="kCV-A1-mPH"/>
+                        <outlet property="card_6" destination="qXn-TD-9e4" id="iqm-xd-rrx"/>
+                        <outlet property="card_7" destination="iFC-lJ-2yE" id="DRA-Zr-OuE"/>
+                        <outlet property="card_8" destination="sGE-tK-Cme" id="EAA-OC-Sjq"/>
+                        <outlet property="card_9" destination="MRn-ug-eZx" id="IuB-KO-9dw"/>
+                        <outlet property="front_1" destination="5jb-Sl-7Ac" id="XWD-cP-8JG"/>
+                        <outlet property="front_10" destination="vtB-mj-3Qa" id="IId-9b-J47"/>
+                        <outlet property="front_11" destination="cMm-7x-RTW" id="OuM-Lv-7MT"/>
+                        <outlet property="front_12" destination="PKi-rE-v4r" id="eSr-S0-zYV"/>
+                        <outlet property="front_2" destination="eFX-wA-8Vm" id="frl-Zy-vvC"/>
+                        <outlet property="front_3" destination="9Lu-8W-Xep" id="9qI-oM-fz5"/>
+                        <outlet property="front_4" destination="Rp2-MY-kxB" id="n8Z-P7-WDJ"/>
+                        <outlet property="front_5" destination="MtC-1y-UuI" id="gEV-K1-MaY"/>
+                        <outlet property="front_6" destination="iXi-3t-M1I" id="Y6F-jX-qeS"/>
+                        <outlet property="front_7" destination="R6l-Kn-emo" id="3cr-AX-vvo"/>
+                        <outlet property="front_8" destination="cdi-fq-E6o" id="I4k-hT-oCk"/>
+                        <outlet property="front_9" destination="alB-fS-hsL" id="EEh-lM-wpB"/>
+                        <outlet property="imgView_1" destination="yDc-La-sMU" id="hFZ-Hh-HNY"/>
+                        <outlet property="imgView_10" destination="wcT-Lf-COB" id="h2U-y8-I5b"/>
+                        <outlet property="imgView_11" destination="zGG-Dz-FDl" id="1xA-El-5sh"/>
+                        <outlet property="imgView_12" destination="zKe-X1-xkc" id="KZG-Wh-QDb"/>
+                        <outlet property="imgView_2" destination="GJN-iz-w7F" id="uTf-F6-iEf"/>
+                        <outlet property="imgView_3" destination="ERC-hh-Rrv" id="nCr-US-RVV"/>
+                        <outlet property="imgView_4" destination="1cZ-5t-gg5" id="3cg-Od-etc"/>
+                        <outlet property="imgView_5" destination="7La-yI-evn" id="ZEJ-Ia-1pe"/>
+                        <outlet property="imgView_6" destination="1ot-s9-bvN" id="aWA-Zh-7Me"/>
+                        <outlet property="imgView_7" destination="o7S-fI-nA1" id="ZMN-Ji-Zn3"/>
+                        <outlet property="imgView_8" destination="c8L-zu-7Rt" id="eqj-1z-qci"/>
+                        <outlet property="imgView_9" destination="tNf-QY-6JI" id="PQZ-6a-4xQ"/>
+                        <outlet property="resetButton" destination="zdM-57-rwd" id="2j3-AL-hOW"/>
+                        <outlet property="scoreBoard" destination="f0B-M4-xMr" id="qhY-rA-wiB"/>
+                        <outlet property="timerScore" destination="q36-gq-DAs" id="y8a-9W-t5H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="47.65625" y="78.515625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SUN.png" width="1890" height="1417"/>
+        <image name="background_dessin2.png" width="2048" height="2732"/>
+        <image name="fox.png" width="300" height="300"/>
+        <image name="front2PHOTOSHOP.png" width="300" height="300"/>
+        <image name="octopus.png" width="300" height="300"/>
+        <image name="owl.png" width="300" height="300"/>
+        <image name="panda.png" width="300" height="300"/>
+        <image name="resetButton.png" width="719" height="720"/>
+        <image name="snake.png" width="300" height="300"/>
+        <image name="whale.png" width="300" height="300"/>
+    </resources>
 </document>
