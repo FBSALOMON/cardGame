@@ -3,10 +3,11 @@ import UIKit
 //-------------------
 class ViewController: UIViewController {
     
-    //SCORE BOARD
+    //SCORE BOARD ----------------------------
     @IBOutlet weak var scoreBoard: UITextView!
+    //----------------------------------------
     
-    //BACK AND FRONT
+    //BACK AND FRONT -------------------------
     @IBOutlet weak var back_1: UIView!
     @IBOutlet weak var front_1: UIView!
     @IBOutlet weak var back_2: UIView!
@@ -31,8 +32,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var front_11: UIView!
     @IBOutlet weak var back_12: UIView!
     @IBOutlet weak var front_12: UIView!
+    //----------------------------------------
     
-    //IMAGES
+    //IMAGES ---------------------------------
     @IBOutlet weak var imgView_1: UIImageView!
     @IBOutlet weak var imgView_2: UIImageView!
     @IBOutlet weak var imgView_3: UIImageView!
@@ -45,8 +47,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var imgView_10: UIImageView!
     @IBOutlet weak var imgView_11: UIImageView!
     @IBOutlet weak var imgView_12: UIImageView!
+    //----------------------------------------
     
-    //CARDS
+    //CARDS ----------------------------------
     @IBOutlet weak var card_1: UIView!
     @IBOutlet weak var card_2: UIView!
     @IBOutlet weak var card_3: UIView!
@@ -59,9 +62,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var card_10: UIView!
     @IBOutlet weak var card_11: UIView!
     @IBOutlet weak var card_12: UIView!
+    //----------------------------------------
     
+    //Reset Button ---------------------------
     @IBOutlet weak var resetButton: UIButton!
-    //VARIABLES
+    //----------------------------------------
+    
+    //VARIABLES ------------------------------
     var arrayOfImagesViews: [UIImageView]!
     var arrayOfAnimalNames: [String]!
     var arrayOfRandomAnimalNames = [String]()
@@ -73,19 +80,23 @@ class ViewController: UIViewController {
     var arrayOfHidingFronts = [UIView]()
     
     var score = 0
-    
     var gameReset = 0
     
-    //TIMER
+    var arrayOfCards: [AnyObject]!
+    //----------------------------------------
+    
+    //TIMER ----------------------------------
     var time = 0
     var timer = Timer()
     var cardCounter = 1 // Number the CARDS
     var cardSequence = 0 // Number the CARDS IN SEQUENCE
-    
-    //-----------------------
+    //----------------------------------------
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        arrayOfCards = [back_1,back_2,back_3,back_4,back_5,back_6,back_7,back_8,back_9,back_10,back_11,back_12]
+        styleCards(border: 3) // Ajouter border pour les cards
         arrayOfAnimalNames = ["panda.png", "panda.png", "fox.png", "fox.png","snake.png","snake.png", "whale.png", "whale.png", "octopus.png","octopus.png","owl.png","owl.png"]
         arrayOfImagesViews = [imgView_1,imgView_2,imgView_3,imgView_4,imgView_5,imgView_6,imgView_7,imgView_8,imgView_9,imgView_10,imgView_11,imgView_12]
         randomAnimal()
@@ -96,13 +107,14 @@ class ViewController: UIViewController {
         backgroundImage.contentMode = UIViewContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
     }
-    //-----------------------
+    //SHOW CARD--------------------------------
+    //This function show the cards when you click
     @IBAction func showCard(_ sender: UIButton) {
         if arrayOfHidingFronts.count == 2 {
             return
         }
         
-        resetButton.isEnabled=false
+        resetButton.isEnabled=false //Bloquer le bouton reset
         print(sender.tag)
         switch sender.tag {
             case 0:
@@ -184,7 +196,8 @@ class ViewController: UIViewController {
         verification()
         
     }
-    //-----------------------
+    //RESET CARDS -----------------------------
+    //Réinitialiser les cartes que vous cliquer.
     func resetCard() {
         if arrayOfShowingBacks.count == 2 {
             Timer.scheduledTimer(timeInterval: 2, target: self, selector: (#selector(reflip)), userInfo: nil, repeats: false)
@@ -197,21 +210,21 @@ class ViewController: UIViewController {
         }
         arrayOfHidingFronts = []
         arrayOfShowingBacks = []
-        self.resetButton.isEnabled=true
+        self.resetButton.isEnabled=true // Montre le reset button après choisir les deux cards
     }
     
     
-    //-----------------------
+    //FLIP CARDS---------------------------------
     func flipCard(from:UIView, to:UIView) {
         let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromTop, .showHideTransitionViews]
         
         UIView.transition(with: from, duration: 1.0, options: transitionOptions, animations: {
             from.isHidden=true
-            //------------------TIMER------------
+            //TIMER------------------------------
             if (self.cardCounter == 1) {
             self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
                 self.cardCounter += 1
-            //------------------TIMER------------
+            //TIMER------------------------------
             }
         })
         
@@ -220,7 +233,8 @@ class ViewController: UIViewController {
             
         })
     }
-    //-----------------------
+    //RANDOM ANIMAIS TO CARDS------------------
+    //Ajouter les animoux aléatoire à les cartes.
     func setImagesToCard () {
         var number = 0
         for imgView in arrayOfImagesViews {
@@ -228,7 +242,8 @@ class ViewController: UIViewController {
             number = number + 1
         }
     }
-    //-----------------------
+    //RANDOM CARDS ----------------------------
+    //Aléatoire toutes les cartes
     func randomAnimal() {
         let numberOfAnimal = arrayOfAnimalNames.count
         
@@ -239,22 +254,26 @@ class ViewController: UIViewController {
         }
         
     }
-    //-----------------------
+    //VERIFICATION-----------------------------
+    //Faire la verification de deux cartes egales et count le score
     func verification(){
         if arrayChosenCards.count == 2 {
             if arrayChosenCards[0] == arrayChosenCards[1] {
                 
+                //SCORE -------------------
                 Timer.scheduledTimer(timeInterval: 2, target: self, selector: (#selector(hideCards)), userInfo: nil, repeats: false)
-                score += (100)*(100/time)*(1+cardSequence)
+                score += (100)*(100/(1+time))*(1+cardSequence)+100
                 scoreBoard.text = String(score)
                 cardSequence += 1
                 gameReset += 1
+                //--------------------------
                 
-                
+                //Animation de le button resert après le game est fini
                 if (gameReset == 6) {
                     resetButton.transform=CGAffineTransform(scaleX: 0.1, y: 0.1)
                     UIView.animate(withDuration: 30, delay: 1, usingSpringWithDamping: 0.2, initialSpringVelocity: 3, options: .allowUserInteraction, animations: {[weak self] in self?.resetButton.transform = .identity}, completion: nil)
                 }
+                //------------------------------
             }else {
                 arrayChosenViews = []
                 cardSequence = 0
@@ -263,14 +282,13 @@ class ViewController: UIViewController {
         }
         resetCard()
     }
-    //-----------------------
+    //HIDE CARDS------------------------------
     @objc func hideCards() {
-        
         arrayChosenViews[0].isHidden = true
         arrayChosenViews[1].isHidden = true
         arrayChosenViews = []
     }
-    //-----------------------
+    //RESET GAME OBJECT-----------------------
     @IBAction func reset(_ sender: UIButton) {
         card_1.isHidden = false
         card_2.isHidden = false
@@ -299,45 +317,19 @@ class ViewController: UIViewController {
         reflip()
         
     }
-    //-----------------------
-    @objc func resetGame() {
-        card_1.isHidden = false
-        card_2.isHidden = false
-        card_3.isHidden = false
-        card_4.isHidden = false
-        card_5.isHidden = false
-        card_6.isHidden = false
-        card_7.isHidden = false
-        card_8.isHidden = false
-        card_9.isHidden = false
-        card_10.isHidden = false
-        card_11.isHidden = false
-        card_12.isHidden = false
-        arrayOfAnimalNames = ["panda.png", "panda.png", "fox.png", "fox.png","snake.png","snake.png", "whale.png", "whale.png", "octopus.png","octopus.png","owl.png","owl.png"]
-        arrayOfRandomAnimalNames = []
-        randomAnimal()
-        setImagesToCard ()
-        score = 0
-        scoreBoard.text = String(score)
-        cardCounter = 1
-        time = 0
-        timer.invalidate()
-        timerScore.text = "0"
-        cardSequence = 0
-        gameReset = 0
-        resetButton.isEnabled=true
-    
-    }
-    //-----------------------
-    
-    
+    //TIMER-----------------------------------
     @IBOutlet weak var timerScore: UILabel!
     func action() {
         time += 1
         timerScore.text = "\(time)"
     }
+    //STYLE de les CARDS ---------------------
     
-    
-  
+    func styleCards(border: CGFloat) {
+        for kitObject in arrayOfCards {
+            kitObject.layer.borderWidth = border
+        }
+    }
+    //----------------------------------------
 }
 
